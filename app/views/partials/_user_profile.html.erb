@@ -1,0 +1,28 @@
+<div class="profile-box bg-white">
+  <div>
+    <%= image_tag(current_user.profile_image_link, alt: current_user.name) %>
+  </div>
+
+  <table class="table table-striped table-profile fs-11">
+    <tr>
+      <td class="color-grey">Email:</td>
+      <td><%= current_user.email %></td>
+    </tr>
+    <tr>
+      <td class="color-grey">Phone #:</td>
+      <td ><%= current_user.phone %></td>
+    </tr>
+    <tr>
+      <td class="color-grey">School:</td>
+      <td><%= current_user.school %></td>
+    </tr>
+    <tr>
+      <td class="color-grey">Organzination:</td>
+      <td><%= current_user.organization %></td>
+    </tr>
+    <tr>
+      <td class="color-grey">Member Since:</td>
+      <td><%= AppUtils.format_short_date(current_user.created_at) %></td>
+    </tr>
+  </table>
+</div>

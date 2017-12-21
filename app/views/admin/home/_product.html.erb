@@ -1,0 +1,8 @@
+<tr>
+  <td>
+    <%= link_to product.name, edit_vendor_product_path(product.vendor.slug, product.slug) %>
+  </td>
+  <td class="text-center hidden-xs">
+    <%= product.vendor.name %>
+  </td>
+</tr>

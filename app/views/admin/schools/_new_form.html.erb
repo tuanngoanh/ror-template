@@ -1,0 +1,45 @@
+<%= simple_form_for @school, html: {remote: true} do |f| %>
+    <div class="modal-body">
+      <%= f.input :name %>
+      <div class="row">
+        <div class="col-sm-6">
+          <%= f.input :phone %>
+        </div>
+        <div class="col-sm-6">
+          <%= f.input :web_address %>
+        </div>
+      </div>
+      <div class="row">
+        <div class="col-sm-6">
+          <%= f.input :address %>
+        </div>
+        <div class="col-sm-6">
+          <%= f.input :city %>
+        </div>
+      </div>
+
+      <div class="row">
+        <div class="col-sm-6">
+          <%= f.association :country, prompt: 'Country', :input_html => {:class => 'multiselect'} %>
+        </div>
+        <div class="col-sm-6">
+          <%= f.input :state_id, collection: [], prompt: 'State', input_html: {class: 'multiselect'} %>
+        </div>
+      </div>
+
+      <div class="row">
+        <div class="col-sm-6">
+          <%= f.input :zip %>
+        </div>
+        <div class="col-sm-6">
+          <%= f.input :admin_id, collection: @admins_collection, prompt: 'Select Staff' %>
+        </div>
+      </div>
+    </div>
+    <div class="modal-footer">
+      <%= f.submit 'Submit', class: 'btn btn-primary', 'data-disable-with' => 'Submitting...' %>
+      <button type="button" class="btn btn-default" data-dismiss="modal">Close</button>
+    </div>
+<% end %>
+
+<%= render :partial => 'admin/partials/scripts/country_state_script', :locals => {:form_name => 'school'} %>

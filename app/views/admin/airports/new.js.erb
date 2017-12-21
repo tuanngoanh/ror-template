@@ -1,0 +1,3 @@
+$('#popupModal .modal-content').html("<%= j(render 'form') %>");
+$('#popupModal .modal-content').prepend("<%= j(render 'layouts/new_modal_title', title: 'Create Airport' ) %>");
+$('#popupModal').modal('show');

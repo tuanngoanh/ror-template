@@ -1,0 +1,289 @@
+// Place all the styles related to the home controller here.
+// They will automatically be included in application.css.
+// You can use Sass (SCSS) here: http://sass-lang.com/
+@import "universal/universal";
+@import "font-awesome-sprockets";
+@import "font-awesome";
+@import "toastr";
+@import "base/colors";
+@import "base/component";
+
+.dataTables_length{
+  select{
+    line-height: 1;
+  }
+}
+
+.menu-3 nav > ul > li > a .fa {
+  display: block;
+}
+
+.field_with_errors{
+  input{
+    border-color: $highlighted !important;
+  }
+  .btn-group{
+    .dropdown-toggle{
+      border-color: $highlighted !important;
+    }
+  }
+}
+.has-error{
+  input{
+    border-color: $highlighted !important;
+  }
+  .btn-group{
+    .dropdown-toggle{
+      border-color: $highlighted !important;
+    }
+  }
+}
+.form-group {
+  label {
+    display: block;
+  }
+
+  select.date.form-control {
+    display: inline-block;
+    width: 31%;
+
+    &:nth-child(2){
+      margin-left: 3.5%;
+      margin-right: 3.5%;
+    }
+  }
+
+  .checkbox {
+    margin-left: 20px;
+  }
+}
+
+.error-inline, .error {
+  font-size: 0.8em;
+  color: $highlighted;
+}
+
+.table-profile > tbody > tr > td { padding: 10px 5px !important;}
+
+.btn-group.bootstrap-select.form-control{
+  display: unset;
+  height: unset;
+  padding: unset;
+  font-size: unset;
+  line-height: unset;
+  color:unset;
+  background-color:unset;
+  background-image: none;
+  border: unset;
+  border-radius: unset;
+  -webkit-box-shadow: unset;
+  box-shadow: unset;
+  -webkit-transition: unset;
+  -o-transition: unset;
+  transition: unset;
+}
+
+.custom-modal .modal-dialog {
+  width: 800px;
+}
+
+@media (max-width: 800px) {
+  .custom-modal .modal-dialog {
+    width: auto;
+  }
+}
+.custom-modal .modal-content .modal-body h2 {
+  padding: 20px 0;
+}
+.custom-modal .modal-content .modal-body .price-box {
+  width: 100%;
+  height: 220px;
+  border-radius: 5px;
+  color: #fff;
+  position: relative;
+  text-align: center;
+}
+
+.custom-modal .modal-content .modal-body .price-box .price {
+  padding-top: 70px;
+  font-size: 32px;
+  line-height: 40px;
+}
+
+.custom-modal .modal-content .modal-body .w-45 {
+  width: 45%;
+  display: inline;
+}
+
+.profile-box {
+  text-align: left;
+}
+
+.profile-box img {
+  width: 100%;
+  object-fit: cover;
+  -o-object-fit: cover;
+}
+
+.profile-box table {
+  margin-top: 50px;
+}
+
+
+//font sizes
+.fs-10 {font-size: 10px;}
+.fs-11 {font-size: 11px;}
+.fs-12 {font-size: 12px;}
+
+//margin
+.m-t-10 {margin-top: 10px;}
+.m-t-15 {margin-top: 15px;}
+.m-t-20 {margin-top: 20px;}
+.m-t-25 {margin-top: 25px;}
+.m-t-30 {margin-top: 30px;}
+
+//shopping page
+.active-step {
+  color: $highlighted !important;
+  font-size: 14px;
+  font-weight: bold;
+}
+
+.skipped-step {
+  color: #000;
+  font-size: 14px;
+}
+
+// lock modal
+.loading-opacity{
+  opacity: 0.5;
+}
+
+.button-s-2.bg-1:hover{
+  background: $highlighted;
+}
+
+.button-s-2.bg-grey-3:hover{
+  background: $disabled;
+}
+
+.padding-top {
+  padding-top: 15px;
+}
+
+.form-group{
+  .cc-number {
+    display: block;
+    width: 100%;
+    height: 34px;
+    font-size: 14px;
+    line-height: 1.428571429;
+    color: #555555;
+    border: 1px solid #ccc;
+    border-radius: 4px;
+    -webkit-box-shadow: inset 0 1px 1px rgba(0, 0, 0, 0.075);
+    box-shadow: inset 0 1px 1px rgba(0, 0, 0, 0.075);
+    -webkit-transition: border-color ease-in-out 0.15s, box-shadow ease-in-out 0.15s;
+    -o-transition: border-color ease-in-out 0.15s, box-shadow ease-in-out 0.15s;
+    transition: border-color ease-in-out 0.15s, box-shadow ease-in-out 0.15s;
+  }
+}
+
+.cc-number {
+  padding-left: 55px;
+  background: asset-url("cards.png") 2px -45px no-repeat,asset-url("cards.png") top 9px right -25px no-repeat #fff;
+  background-size: 45px 305px, 45px 350px;
+}
+
+.cc-number.visa {
+  background-position: 2px -83px, top 9px right -25px;
+}
+.cc-number.visa_electron {
+  background-position: 2px -123px, top 9px right -25px;
+}
+.cc-number.mastercard {
+  background-position: 2px -159px, top 9px right -25px;
+}
+.cc-number.maestro {
+  background-position: 2px -197px, top 9px right -25px;
+}
+.cc-number.discover {
+  background-position: 2px -235px, top 9px right -25px;
+}
+.cc-number.amex {
+  background-position: 2px -275px, top 9px right -25px;
+}
+.cc-number.diners_club_carte_blanche {
+  background-position: 2px -44px, top 9px right -25px;
+}
+.cc-number.jcb {
+  background-position: 2px -44px, top 9px right -25px;
+}
+.cc-number.valid.visa {
+  background-position: 2px -83px, top -18px right -25px;
+}
+.cc-number.valid.visa_electron {
+  background-position: 2px -123px, top -18px right -25px;
+}
+.cc-number.valid.mastercard {
+  background-position: 2px -159px, top -18px right -25px;
+}
+.cc-number.valid.maestro {
+  background-position: 2px -197px, top -18px right -25px;
+}
+.cc-number.valid.discover {
+  background-position: 2px -235px, top -18px right -25px;
+}
+.cc-number.valid.amex {
+  background-position: 2px -275px, top -18px right -25px;
+}
+.cc-number.valid.diners_club_carte_blanche {
+  background-position: 2px -44px, top -18px right -25px;
+}
+.cc-number.valid.jcb {
+  background-position: 2px -44px, top -18px right -25px;
+}
+.cc-name, .cc-exp,.cc-cvc {
+  background: asset-url("cards.png") #fff no-repeat top 9px right -25px;
+  background-size: 45px 350px;
+}
+.cc-name.valid,.cc-exp.valid, .cc-cvc.valid{
+  background-position: top -18px right -25px;
+}
+
+// payment modal
+#paymentModal{
+  .simple-tab.type-2{
+    .tab-nav-wrapper{
+      margin-bottom: 20px;
+    }
+
+    .tabs-content{
+      .tabs-wrap-style{
+        padding: 15px 30px;
+      }
+
+      .input-entry.child-payments{
+        margin-bottom: 15px;
+
+        .child-payment{
+          label.clearfix{
+            display: inline-block;
+            margin-right: 15px;
+          }
+
+          .checkbox-text{
+            color: $highlighted;
+          }
+        }
+      }
+    }
+  }
+}
+
+// checkout
+.list-content{
+  .table-view.col-sm-12{
+    width: 100%;
+  }
+}

@@ -1,0 +1,9 @@
+<tr>
+  <td><%= school.name %></td>
+  <td><%= school.slug %></td>
+  <td><%= school.address %></td>
+  <td class="text-right">
+    <%= link_to raw('<i class="fa fa-edit"></i>'), edit_school_path(school.slug), class: 'btn btn-default btn-sm' %>
+    <%= link_to raw('<i class="fa fa-trash"></i>'), school_path(school.slug), class: 'btn btn-danger btn-sm', data: {confirm: 'Are you sure?', method: :delete} %>
+  </td>
+</tr>

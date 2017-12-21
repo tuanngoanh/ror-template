@@ -1,0 +1,33 @@
+<div class="container">
+  <div class="login-fullpage">
+    <div class="row">
+      <div class="login-logo background-block" style="background-image: url(<%= asset_path 'non-admin/special/login.jpg' %>);">
+        <%=image_tag('non-admin/special/login.jpg', alt: '', class: 'center-image', style: 'display: none') %>
+      </div>
+      <div class="col-xs-12 col-sm-7">
+        <div class="f-login-content">
+          <div class="f-login-header">
+            <div class="f-login-title color-dr-blue-2">Welcome!</div>
+            <div class="f-login-desc color-grey"><%= t('.change_your_password') %></div>
+          </div>
+          <%= simple_form_for(resource, as: resource_name, url: password_path(resource_name), html: {method: :put, class: 'f-login-form'}) do |f| %>
+              <%= devise_error_messages! %>
+              <%= f.input :reset_password_token, as: :hidden %>
+              <%= f.full_error :reset_password_token %>
+              <div class="input-style-1 b-50 type-2 color-5">
+                <%= f.input :password, label: false, required: true, autofocus: true, error: false, placeholder: t('.new_password'), hint: ("#{@minimum_password_length} characters minimum" if @minimum_password_length) %>
+                <%= f.input :password_confirmation, label: false, required: true, placeholder: t('.confirm_password'), error: false %>
+              </div>
+              <div class="row">
+                <input type="submit" class="login-btn c-button full b-60 bg-dr-blue-2 hv-dr-blue-2-o" value="<%= t('.change_password') %>" data-disable-with="Changing...">
+              </div>
+              </br>
+              <div class="row">
+                <%= render "users/shared/links" %>
+              </div>
+          <% end %>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>

@@ -1,0 +1,38 @@
+<% if total_entries > MIN_PAGE_SIZE %>
+    <div class="form-inline pagination">
+      Show
+      <%= select_tag page_size_name + '_page_size_selector',
+                     options_for_select([[MIN_PAGE_SIZE, MIN_PAGE_SIZE], [25, 25], [50, 50], [100, 100]],
+                                        page_size_value),
+                     :class => 'form-control inline-sm page-size-combobox',
+                     'page-size-name' => page_size_name,
+                     'other-params' => defined?(other_params) ? other_params.to_json : '' %>
+      entries</div>
+
+
+    <% if is_render_script %>
+        <script>
+            $('html').off('change', '.page-size-combobox').on('change', '.page-size-combobox', function () {
+                $('.modal-backdrop').remove();
+                var page_size_name = $(this).attr('page-size-name') + "_per_page";
+                var other_params = $.trim($(this).attr('other-params'));
+                var cookie_value = getCookie(page_size_name);
+
+                if (cookie_value != $(this).val()) {
+                    setCookie(page_size_name, $(this).val(), 1);
+                    var url = window.location.pathname;
+                    if (other_params != '') {
+                        other_params = jQuery.parseJSON(other_params);
+                        if (other_params && other_params.length > 0) {
+                            $.each(other_params, function (i, p) {
+                                url += i == 0 ? '?' : '&';
+                                url += p.name + '=' + p.value;
+                            });
+                        }
+                    }
+                    window.location.href = url;
+                }
+            });
+        </script>
+    <% end %>
+<% end %>

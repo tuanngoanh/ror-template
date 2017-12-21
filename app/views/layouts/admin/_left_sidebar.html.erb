@@ -1,0 +1,65 @@
+<aside class="main-sidebar">
+  <!-- sidebar: style can be found in sidebar.less -->
+  <section class="sidebar">
+    <!-- Sidebar user panel -->
+    <div class="user-panel">
+      <div class="pull-left image">
+        <%= image_tag(current_user.profile_image_link, alt: 'user image', class: 'img-circle') %>
+      </div>
+      <div class="pull-left info">
+        <p><%= current_user.short_name %></p>
+        <a href="#"><i class="fa fa-circle text-success"></i> Online</a>
+      </div>
+    </div>
+    <!-- search form -->
+    <form action="<%= search_all_path %>" method="get" class="sidebar-form">
+      <div class="input-group">
+        <input type="text" name="q" class="form-control" placeholder="Search...">
+        <span class="input-group-btn">
+          <button type="submit" name="search" id="search-btn" class="btn btn-flat"><i class="fa fa-search"></i>
+          </button>
+        </span>
+      </div>
+    </form>
+    <!-- /.search form -->
+    <!-- sidebar menu: : style can be found in sidebar.less -->
+    <ul class="sidebar-menu">
+      <li class="header">MAIN NAVIGATION</li>
+
+      <% active = %w(control_dashboards).include?(controller_name) %>
+      <li class="treeview <%= 'active' if active %>">
+        <%= link_to '#' do %>
+            <i class="fa fa-tachometer"></i>
+            <span>Control Dashboard</span>
+        <% end %>
+      </li>
+      <% active = %w(airports).include?(controller_name) %>
+      <li class="treeview <%= 'active' if active %>">
+        <a href="#">
+          <i class="fa fa-plane"></i>
+          <span> Airports</span>
+          <span class="pull-right-container">
+            <i class="fa fa-angle-left pull-right"></i>
+          </span>
+        </a>
+        <ul class="treeview-menu" style="display: <%= active ? 'block' : 'none' %>;">
+          <li class="<%= 'active' if controller_name == 'airports' %>">
+            <%= link_to airports_path do %>
+                <i class="fa fa-circle-o"></i>
+                <span>All Airports</span>
+            <% end %>
+          </li>
+        </ul>
+      </li>
+
+      <% active = %w(schools organizations).include?(controller_name) %>
+      <li class="treeview <%= 'active' if active %>">
+        <%= link_to schools_path do %>
+            <i class="fa fa-university"></i>
+            <span>Schools & Orgs</span>
+        <% end %>
+      </li>
+    </ul>
+  </section>
+  <!-- /.sidebar -->
+</aside>

@@ -1,0 +1,2 @@
+<% param_name ||= 'page' %>
+<%= will_paginate(object, param_name: param_name, class: 'pull-right', next_label: 'Next', previous_label: 'Previous', :renderer => 'PaginationHelper::LinkRenderer')%>

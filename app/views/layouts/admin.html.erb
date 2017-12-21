@@ -1,0 +1,51 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <title>Admin</title>
+  <link rel="icon" type="image/x-icon" href="<%= image_path('favicon.png') %>"/>
+  <%= csrf_meta_tags %>
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+  <%= stylesheet_link_tag 'admin/application', media: 'all', 'data-turbolinks-track': 'reload' %>
+  <%= stylesheet_link_tag 'https://cdnjs.cloudflare.com/ajax/libs/ionicons/2.0.1/css/ionicons.min.css' %>
+  <%= javascript_include_tag 'https://cdnjs.cloudflare.com/ajax/libs/raphael/2.1.0/raphael-min.js' %>
+  <%= javascript_include_tag 'https://cdnjs.cloudflare.com/ajax/libs/moment.js/2.11.2/moment.min.js' %>
+  <%= javascript_include_tag 'admin/application', 'data-turbolinks-track': 'reload' %>
+
+</head>
+<body class="hold-transition skin-blue sidebar-mini" ng-controller="GlobalCtrl">
+<div id="flash_message_script">
+  <%= flash_messages %>
+</div>
+
+<div class="wrapper">
+  <%= render 'layouts/admin/header' %>
+  <%= render 'layouts/admin/left_sidebar' %>
+
+  <!-- Content Wrapper. Contains page content -->
+  <div class="content-wrapper">
+    <!-- Content Header (Page header) -->
+    <section class="content-header">
+      <%= render_breadcrumbs :builder => ::BootstrapBreadcrumbsLeftBuilder %>
+      <%= render_breadcrumbs :builder => ::BootstrapBreadcrumbsBuilder %>
+    </section>
+
+    <%= render 'layouts/new_modals' %>
+
+    <!-- Main content -->
+    <section class="content">
+      <div class="wrap" id="yield_container">
+        <%= yield %>
+      </div>
+    </section>
+  </div>
+
+  <%= render 'layouts/admin/footer' %>
+  <%= render 'layouts/admin/control_sidebar' %>
+
+  <!-- Add the sidebar's background. This div must be placed
+  immediately after the control sidebar -->
+  <div class="control-sidebar-bg"></div>
+</div>
+</body>
+</html>

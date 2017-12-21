@@ -1,0 +1,107 @@
+en:
+  admin:
+    organizations:
+      form:
+        city: Enter city
+        phone: Enter phone
+        place_holder_address: Enter your organization address
+        place_holder_name: 'Enter your organization name '
+        place_holder_web_address: Enter your organization web address
+        zip: Enter zip code
+    schools:
+      form:
+        place_holder_address: Address
+        place_holder_city: City
+        place_holder_name: Name
+        place_holder_phone: Phone
+        place_holder_staff: Staff
+        place_holder_zip: Zip
+        select_country: Country
+        select_state: State
+    users:
+      form:
+        confirm_password: Confirm your password
+        female: Female
+        first_name: First name
+        last_name: Last name
+        male: Male
+        middle_name: Middle name
+        not_verified: Not verified
+        phone_number: Your phone number
+        place_holder_email: Enter your email.
+        place_holder_organization: Enter your organization
+        place_holder_password: Enter your password
+        place_holder_school: Enter your school
+        select_day: Day
+        select_gender: Your Gender
+        select_month: Month
+        select_year: Year
+        verified: Verified
+      show:
+        place_holder_staff: Active Staff
+  confirm:
+    delete: Are you sure you want to delete?
+    unassign: Are you sure you want to un-assign?
+  error:
+    record_not_found: '%{object_name} is not found.'
+    unknown: Whoa! An error occurred! Please try again.
+  users:
+    confirmations:
+      new:
+        place_holder_email: Enter your email
+        resend_confirmation: Resend confirmation instructions
+    passwords:
+      edit:
+        change_password: Change my password
+        change_your_password: Change your password
+        confirm_password: Confirm your new password
+        new_password: New password
+      new:
+        forgot_password: Forgot your password?
+        place_holder_email: Enter your email address
+        sending_forgot_password: Send me reset password instructions
+    registrations:
+      edit:
+        confirm_password: Confirm new password
+        current_password: Your current password
+        edit_profile: Edit profile
+        female: Female
+        first_name: First name
+        hint_current_password: Please input your current password to confirm your changes
+        hint_password: leave it blank if you don't want to change it
+        last_name: Last name
+        male: Male
+        middle_name: Middle name
+        phone_number: Your phone number
+        place_holder_email: Enter your email.
+        place_holder_organization: Your organization
+        place_holder_password: Your password
+        place_holder_school: Your school
+        select_day: Select day
+        select_gender: Your Gender
+        select_month: Select month
+        select_year: Select year
+        update: UPDATE
+      new:
+        confirm_password: Confirm your password
+        female: Female
+        first_name: First name
+        last_name: Last name
+        male: Male
+        middle_name: Middle name
+        phone_number: Your phone number
+        place_holder_email: Enter your email.
+        place_holder_organization: Enter your organization
+        place_holder_password: Enter your password
+        place_holder_school: Enter your school
+        register_account: REGISTER ACCOUNT
+        select_day: Select day
+        select_gender: Your Gender
+        select_month: Select month
+        select_year: Select year
+    sessions:
+      new:
+        desc_login: Please login to your account
+        login: LOGIN TO YOUR ACCOUNT
+        placeholder_email: Enter your email
+        placeholder_password: Enter your password

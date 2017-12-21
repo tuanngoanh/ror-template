@@ -1,0 +1,39 @@
+<div class="box">
+  <div class="box-header page-title">
+    <p><%= @organization.name %></p>
+    <% if @organization.web_address %>
+        <h4>
+          <a href="http://<%= @organization.web_address.gsub('http://', '') %>" target="_blank" class="red">
+            <%= @organization.web_address %>
+          </a>
+        </h4>
+    <% end %>
+  </div>
+  <div class="box-body">
+    <div class="menu-tabs">
+      <i class="fa fa-align-justify"></i>
+      <span class="text"><%= @current_tab.gsub('_', ' ').titleize %></span>
+      <span class="caret"></span>
+    </div>
+
+    <div class="tab-panel nav-tabs-custom">
+      <ul class="nav nav-tabs">
+        <% Organization::EDIT_TAB_NAMES.each_value do |tab_name| %>
+            <li <%= 'class=active' if @current_tab == tab_name %>>
+              <%= link_to tab_name.titleize.gsub('And', '&'), edit_school_organization_path(@school.slug, @organization.slug, :tab => tab_name), 'data-push' => true %>
+            </li>
+        <% end %>
+      </ul>
+
+      <div class="tab-content">
+        <div class="tab-pane slide-right in active">
+          <% if @current_tab == Organization::EDIT_TAB_NAMES[:details] %>
+              <div id="organization-details-section">
+                <%= render :partial => 'edit_form' %>
+              </div>
+          <% end %>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>

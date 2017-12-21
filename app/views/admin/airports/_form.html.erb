@@ -1,0 +1,16 @@
+<%= simple_form_for @airport, html: {remote: true} do |f| %>
+    <div class="modal-body">
+      <%= f.input :name %>
+      <%= f.input :code %>
+      <%= f.association :time_zone, prompt: 'Select an time zone' %>
+      <%= f.association :country, prompt: 'country' %>
+      <%= f.association :state, prompt: 'state' %>
+      <%= f.input :city %>
+    </div>
+    <div class="modal-footer">
+      <%= f.submit nil, class: 'btn btn-primary', 'data-disable-with' => 'Submitting...' %>
+      <button type="button" class="btn btn-default" data-dismiss="modal">Close</button>
+    </div>
+<% end %>
+
+<%= render :partial => 'admin/partials/scripts/country_state_script', :locals => {:form_name => 'airport'} %>

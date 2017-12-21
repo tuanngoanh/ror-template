@@ -1,0 +1,16 @@
+<% remote ||= false %>
+
+<% if defined?(other_params) && other_params.length > 0 %>
+    <% other_params.each do |p| %>
+        <input type="hidden" name="<%= p[:name] %>" value="<%= p[:value] %>" />
+    <% end %>
+<% end %>
+
+<form action="<%= action %>" data-push="true" <%= 'data-remote="true"' if remote %>>
+  <div class="input-group">
+    <input type="text" name="q" class="form-control" placeholder="<%= plh_search %>" value="<%= key_search %>"/>
+    <span class="input-group-btn">
+      <button type="submit" id="search-btn" class="btn btn-info"><i class="fa fa-search"></i></button>
+    </span>
+  </div>
+</form>

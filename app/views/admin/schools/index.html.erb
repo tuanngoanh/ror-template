@@ -1,0 +1,60 @@
+<nav class="navbar navbar-default margin-top-10">
+  <div class="navbar-header">
+    <button type="button" class="navbar-toggle collapsed" data-toggle="collapse" data-target="#nav-collapsed-content" aria-expanded="false">
+      <span class="icon-bar"></span>
+      <span class="icon-bar"></span>
+      <span class="icon-bar"></span>
+    </button>
+    <a class="navbar-brand" href="#">Search School</a>
+  </div>
+
+  <div class="collapse navbar-collapse" id="nav-collapsed-content">
+    <div class="navbar-form navbar-left">
+      <%= render :partial => 'partials/search_form',
+                 :locals => {
+                     :plh_search => 'Search school name...',
+                     :key_search => @key_search,
+                     :action => schools_path
+                 } %>
+    </div>
+
+    <div class="nav navbar-right filters">
+      <%= link_to raw("<i class='fa fa-plus'></i> New #{SCHOOL_GROUP_TEXT}"), new_school_path,
+                  class: 'btn btn-primary btn-sm', remote: true,
+                  'title' => "Create New #{SCHOOL_GROUP_TEXT}" %>
+    </div>
+  </div>
+</nav>
+
+<div class="box no-border">
+  <div class="box-body">
+    <div class="row">
+      <div class="col-sm-3">
+        <%= render partial: 'partials/page_size_selector',
+                   locals: {
+                       page_size_name: @page_size_name,
+                       page_size_value: @page_size_value,
+                       total_entries: @schools.total_entries,
+                       is_render_script: true}
+        %>
+      </div>
+      <div class="col-sm-9">
+        <%= render 'partials/will_paginate', object: @schools %>
+      </div>
+    </div>
+
+    <table class="table table-hover datatable">
+      <thead>
+      <tr>
+        <th>Name</th>
+        <th>Slug</th>
+        <th>Address</th>
+        <th class="no-sorter"></th>
+      </tr>
+      </thead>
+      <tbody>
+      <%= render @schools %>
+      </tbody>
+    </table>
+  </div>
+</div>

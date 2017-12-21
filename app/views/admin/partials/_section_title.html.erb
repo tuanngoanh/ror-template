@@ -1,0 +1,11 @@
+<% collapsed ||= false %>
+<div class="box-header with-border grey-bg">
+  <b class="text-uppercase"><%= title %></b>
+  <div class="right-buttons">
+    <% if collapsed %>
+        <span>Expand</span> <i class="fa fa-chevron-circle-down"></i>
+    <% else %>
+        <span>Collapse</span> <i class="fa fa-chevron-circle-up"></i>
+    <% end %>
+  </div>
+</div>

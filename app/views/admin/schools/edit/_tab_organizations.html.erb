@@ -1,0 +1,36 @@
+<h3>
+  <%= link_to raw("<i class='fa fa-plus'></i> New Organization"), new_school_organization_path(@school.slug),
+              class: 'btn btn-primary', remote: true,
+              'title' => 'Create New Organization' %>
+</h3>
+
+<% if @organizations.length > 0 %>
+    <div class="row">
+      <div class="col-sm-3">
+        <%= render partial: 'partials/page_size_selector',
+                   locals: {
+                       page_size_name: @organization_page_size_name,
+                       page_size_value: @organization_page_size_value,
+                       total_entries: @organizations.total_entries,
+                       is_render_script: true}
+        %>
+      </div>
+      <div class="col-sm-9">
+        <%= render 'partials/will_paginate', object: @organizations, :class_name => 'organization_page' %>
+      </div>
+    </div>
+
+    <table class="table table-hover datatable">
+      <thead>
+      <tr>
+        <th>Name</th>
+        <th>Address</th>
+        <th>Leader</th>
+        <th class="no-sorter"></th>
+      </tr>
+      </thead>
+      <tbody>
+      <%= render @organizations %>
+      </tbody>
+    </table>
+<% end %>

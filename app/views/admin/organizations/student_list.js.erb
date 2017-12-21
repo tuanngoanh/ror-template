@@ -1,0 +1,4 @@
+$('#popupModal .modal-content').html("<%= escape_javascript(render :partial => 'admin/schools/edit/tab_students') %>");
+$('#popupModal .modal-content').prepend("<%= j(render 'layouts/new_modal_title',
+title: "[#{@students.total_entries}] #{@students.total_entries > 1 ? 'Students' : 'Student'} Of #{@organization.name}" ) %>");
+$('#popupModal').modal('show');

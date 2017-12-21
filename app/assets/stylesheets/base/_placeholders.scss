@@ -1,0 +1,22 @@
+@import "colors";
+
+/*-------------------------------------------------------------------------------------------
+ * Unlike mixins, placeholders can be used multiple times without adding any duplicate code.
+ * --> Usage: @extend %bg-image;
+ *-----------------------------------------------------------------------------------------*/
+
+%transition {
+  -webkit-transition: 0.25s ease-out;
+  -moz-transition: 0.25s ease-out;
+  -o-transition: 0.25s ease-out;
+  -ms-transition: 0.25s ease-out;
+  transition: 0.25s ease-out;
+}
+
+%gray-border-all{
+  border: 1px solid $border_color;
+}
+
+%border-bottom{
+  border-bottom: 1px solid $border_color;
+}

@@ -1,0 +1,13 @@
+<%= simple_form_for(@organization, url: school_organization_path(@school.slug, @organization.slug), html: {remote: true}) do |f| %>
+    <%= f.input :name %>
+    <%= f.input :web_address %>
+    <%= f.input :phone %>
+    <%= f.input :address %>
+    <%= f.input :city %>
+    <%= f.association :country, prompt: 'Country', :input_html => {:class => 'multiselect'} %>
+    <%= f.association :state, prompt: 'State', :input_html => {:class => 'multiselect'} %>
+    <%= f.input :zip %>
+    <%= f.submit 'Submit', class: 'btn btn-primary', 'data-disable-with' => 'Submitting...' %>
+<% end %>
+
+<%= render :partial => 'admin/partials/scripts/country_state_script', :locals => {:form_name => 'organization'} %>

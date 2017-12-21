@@ -1,0 +1,49 @@
+/*--------------------------------------------------------------------------------
+ * Usage: @include border-radius(5px);
+ *-------------------------------------------------------------------------------*/
+
+@mixin border-radius($arc) {
+  -moz-border-radius: $arc;
+  -webkit-border-radius: $arc;
+  border-radius: $arc;
+}
+
+@mixin border-radius-top-left($arc) {
+  -moz-border-radius-topleft: $arc !important;
+  -webkit-border-top-left-radius: $arc !important;
+  border-top-left-radius: $arc !important;
+}
+
+@mixin border-radius-top-right($arc) {
+  -moz-border-radius-topright: $arc !important;
+  -webkit-border-top-right-radius: $arc !important;
+  border-top-right-radius: $arc !important;
+}
+
+@mixin border-radius-bottom-left($arc) {
+  -moz-border-radius-bottomleft: $arc !important;
+  -webkit-border-bottom-left-radius: $arc !important;
+  border-bottom-left-radius: $arc !important;
+}
+
+@mixin border-radius-bottom-right($arc) {
+  -moz-border-radius-bottomright: $arc !important;
+  -webkit-border-bottom-right-radius: $arc !important;
+  border-bottom-right-radius: $arc !important;
+}
+
+@mixin box-shadow($top, $right, $bottom, $left, $color) {
+  -webkit-box-shadow: $top $right $bottom $left $color;
+  -moz-box-shadow: $top $right $bottom $left $color;
+  box-shadow: $top $right $bottom $left $color;
+}
+
+@mixin rotate-transform($degree){
+  -webkit-transform: rotate($degree);
+  -moz-transform: rotate($degree);
+  -ms-transform: rotate($degree);
+  -o-transform: rotate($degree);
+  transform: rotate($degree);
+}
+
+

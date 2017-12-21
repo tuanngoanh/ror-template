@@ -1,0 +1,55 @@
+<div class="row">
+  <div class="col-sm-3">
+    <%= render partial: 'partials/page_size_selector',
+               locals: {
+                   page_size_name: @student_page_size_name,
+                   page_size_value: @student_page_size_value,
+                   total_entries: @students.total_entries,
+                   is_render_script: true}
+    %>
+  </div>
+  <div class="col-sm-9">
+    <%= render 'partials/will_paginate', object: @students, :param_name => 'student_page' %>
+  </div>
+</div>
+
+<table class="table table-hover <%= @students.length > 0 ? 'datatable' : '' %>">
+  <thead>
+  <tr>
+    <th class="text-center">Full Name</th>
+    <th class="text-center">Email</th>
+    <th class="text-center">Phone</th>
+    <th class="text-center"># Orders</th>
+    <th class="no-sorter"></th>
+  </tr>
+  </thead>
+  <tbody>
+  <% if @students.length > 0 %>
+      <% @students.each do |user| %>
+          <tr>
+            <td>
+              <%= image_tag user.profile_image_link, {class: 'profile-img'} %>
+              <%= link_to user.name, user_path(user.id) %>
+            </td>
+            <td class="text-center"><%= user.email %></td>
+            <td class="text-center">
+              <% unless user.phone.blank? %>
+                  <%= number_to_phone(user.phone) %>
+              <% end %>
+            </td>
+            <td class="text-center">
+              [ <%= user.order_count %> ]
+            </td>
+            <td class="text-right">
+              <%= link_to raw("<i class='fa fa-pencil-square-o'></i>"), edit_user_path(user), class: 'btn btn-default', title: 'edit' %>
+            </td>
+          </tr>
+      <% end %>
+  <% else %>
+      <tr>
+        <td colspan="5">No student in this school</td>
+      </tr>
+  <% end %>
+  </tbody>
+</table>
+

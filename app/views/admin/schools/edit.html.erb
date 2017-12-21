@@ -1,0 +1,52 @@
+<div class="box">
+  <div class="box-header page-title">
+    <p><%= @school.name %></p>
+    <% if @school.web_address %>
+        <h4>
+          <a href="http://<%= @school.web_address.gsub('http://', '') %>" target="_blank" class="red">
+            <%= @school.web_address %>
+          </a>
+        </h4>
+    <% end %>
+  </div>
+  <div class="box-body">
+    <div class="menu-tabs">
+      <i class="fa fa-align-justify"></i>
+      <span class="text"><%= @current_tab.gsub('_', ' ').titleize %></span>
+      <span class="caret"></span>
+    </div>
+    <div class="tab-panel nav-tabs-custom">
+      <ul class="nav nav-tabs">
+        <% School::EDIT_TAB_NAMES.each_value do |tab_name| %>
+            <li <%= 'class=active' if @current_tab == tab_name %>>
+              <%= link_to tab_name.titleize.gsub('And', '&'), edit_school_path(@school.slug, :tab => tab_name), 'data-push' => true %>
+            </li>
+        <% end %>
+      </ul>
+
+      <div class="tab-content">
+        <div class="tab-pane slide-right in active">
+          <% if @current_tab == School::EDIT_TAB_NAMES[:details] %>
+              <div id="school-details-section">
+                <%= render :partial => 'admin/schools/edit/tab_details' %>
+              </div>
+          <% end %>
+
+          <% if @current_tab == School::EDIT_TAB_NAMES[:organizations] %>
+              <div id="organizations-section">
+                <%= render :partial => 'admin/schools/edit/tab_organizations' %>
+              </div>
+          <% end %>
+
+          <% if @current_tab == School::EDIT_TAB_NAMES[:students] %>
+              <div id="students-section">
+                <%= render :partial => 'admin/schools/edit/tab_students' %>
+              </div>
+          <% end %>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>
+
+

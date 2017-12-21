@@ -1,0 +1,31 @@
+<div class="container">
+  <div class="login-fullpage">
+    <div class="row">
+      <div class="login-logo background-block" style="background-image: url(<%= asset_path 'non-admin/special/login.jpg' %>);">
+        <%=image_tag('non-admin/special/login.jpg', alt: '', class: 'center-image', style: 'display: none') %>
+      </div>
+      <div class="col-xs-12 col-sm-7">
+        <div class="f-login-content">
+          <div class="f-login-header">
+            <div class="f-login-title color-dr-blue-2">Welcome!</div>
+            <div class="f-login-desc color-grey"><%= t('.resend_confirmation') %></div>
+          </div>
+          <%= simple_form_for(resource, as: resource_name, url: confirmation_path(resource_name), html: {method: :post, class: 'f-login-form'}) do |f| %>
+              <%= devise_error_messages! %>
+              <%= f.full_error :confirmation_token %>
+              <div class="input-style-1 b-50 type-2 color-5">
+                <%= f.input :email, required: true, autofocus: true, placeholder: t('.place_holder_email'), label: false, error: false %>
+              </div>
+              </br>
+              <input type="submit" class="login-btn c-button full b-60 bg-dr-blue-2 hv-dr-blue-2-o" value='<%= t('.resend_confirmation') %>' data-disable-with="Sending...">
+              <div class="row">
+                <div class="col-xs-12 col-md-12 col-sm-12">
+                  <%= render "users/shared/links" %>
+                </div>
+              </div>
+              </div>
+          <% end %>
+          </div>
+    </div>
+  </div>
+</div>

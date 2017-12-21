@@ -1,0 +1,18 @@
+<tr>
+  <td><%= airport.name %></td>
+  <td><%= airport.code %></td>
+  <td><%= airport.city %></td>
+  <td class="hidden-xs">
+    <%= airport.state.name if airport.state %>
+  </td>
+  <td class="hidden-xs">
+    <%= airport.country.name if airport.country %>
+  </td>
+  <td class="hidden-xs">
+    <%= airport.time_zone.name if airport.time_zone.present? %>
+  </td>
+  <td class="text-right">
+    <%= link_to raw('<i class="fa fa-edit"></i>'), edit_airport_path(airport.code), class: 'btn btn-default btn-sm', remote: true %>
+    <%= link_to raw('<i class="fa fa-trash"></i>'), airport_path(airport.code), class: 'btn btn-danger btn-sm', data: {confirm: 'Are you sure?', method: :delete} %>
+  </td>
+</tr>

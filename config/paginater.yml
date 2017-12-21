@@ -1,0 +1,5 @@
+development:
+  per_page: 30
+
+production:
+  per_page: 30

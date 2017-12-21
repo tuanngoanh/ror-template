@@ -1,0 +1,52 @@
+<header class="color-1 hovered menu-3">
+  <div class="container">
+    <div class="row">
+      <div class="col-md-12">
+        <div class="nav">
+          <a href=<%=root_path  %> class="logo">
+            <%=image_tag('logo-imt.png', alt: 'IMT')  %>
+          </a>
+          <div class="nav-menu-icon">
+            <a href="#"><i></i></a>
+          </div>
+          <nav class="menu">
+            <ul>
+              <li class="type-1 <%= 'active' if action_name == 'event_list' || controller_name == 'shopping' %>">
+                <a href="#">Events</a>
+              </li>
+              <!--<li class="type-1 <%= 'active' if action_name == 'about_us' %>">-->
+                <!--<a href="/about-us">About Us</a>-->
+              <!--</li>-->
+
+              <% if current_user %>
+                  <li class="type-1 <%= 'active' if %w(users registrations).include?(controller_name) %>">
+                    <a href="#"><%= current_user.short_name %> <span class="fa fa-angle-down"></span></a>
+                    <ul class="dropmenu">
+                      <li>
+                        <%= link_to 'My Profile', my_profile_path %>
+                      </li>
+                      <li>
+                        <%= link_to 'Profile Settings', edit_user_registration_path %>
+                      </li>
+                      <% if current_user.staff %>
+                          <li>
+                            <%= link_to 'Admin Dashboard', home_admin_path %>
+                          </li>
+                      <% end %>
+                      <li>
+                        <%= link_to 'Sign out', destroy_user_session_path, 'data-method' => 'delete', 'data-confirm' => 'Are you sure to Sign out?' %>
+                      </li>
+                    </ul>
+                  </li>
+              <% else %>
+                  <li class="<%= 'active' if %w(sessions).include?(controller_name) %>">
+                    <%= link_to 'Login', new_user_session_path %>
+                  </li>
+              <% end %>
+            </ul>
+          </nav>
+        </div>
+      </div>
+    </div>
+  </div>
+</header>

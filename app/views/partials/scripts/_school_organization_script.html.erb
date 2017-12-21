@@ -1,0 +1,56 @@
+<script>
+    var school_selector = $("#<%= form_name %>_school");
+    var organization_selector = $("#<%= form_name %>_organization");
+    var selected_school = school_selector.val();
+    var selected_organization = organization_selector.val();
+
+    fill_schools();
+    fill_organizations_from_school(school_selector.val());
+
+    if (selected_organization != '') {
+        organization_selector.val(selected_organization);
+    }
+
+    school_selector.on('change', function () {
+        fill_organizations_from_school($(this).val());
+    });
+
+    function fill_schools(){
+        var schools = <%= raw School.to_collection_of_select.to_json %>;
+        var options = '<option value="">Select <%= SCHOOL_GROUP_TEXT %></option>';
+        for (var i = 0; i < schools.length; i++) {
+            options += '<option value="' + schools[i][0] + '">' + schools[i][1] + '</option>';
+        }
+
+        school_selector.html(options);
+        if (selected_school != '') {
+            school_selector.val(selected_school);
+            selected_school = '';
+        }
+    }
+
+    function fill_organizations_from_school(selected_country) {
+        if ($.trim(selected_country) != '') {
+            $.ajax({
+                url: '/get-organizations-from-school/' + selected_country,
+                type: 'GET'
+            }).done(function (result) {
+                if (result && result.length) {
+                    var options = '<option value="">Select Organization</option>';
+                    for (var i = 0; i < result.length; i++) {
+                        options += '<option value="' + result[i].name + '">' + result[i].name + '</option>';
+                    }
+                    organization_selector.html(options);
+
+                    if (selected_organization != '') {
+                        organization_selector.val(selected_organization);
+                        selected_organization = '';
+                    }
+                }
+            });
+        }else{
+            var options = '<option value="">Select Organization</option>';
+            organization_selector.html(options);
+        }
+    }
+</script>

@@ -1,0 +1,39 @@
+<script>
+    var state_selector = $("#<%= form_name %>_state_id");
+    var country_selector = $("#<%= form_name %>_country_id");
+    var selected_state_id = state_selector.val();
+
+    if (country_selector.val() != '') {
+        fill_states_from_country(country_selector.val());
+    }
+
+    if (selected_state_id != '') {
+        state_selector.val(selected_state_id);
+    }
+
+    country_selector.on('change', function () {
+        fill_states_from_country($(this).val());
+    });
+
+    function fill_states_from_country(country_id) {
+        if ($.trim(country_id) != '') {
+            $.ajax({
+                url: '/admin/get-state-from-country/' + country_id,
+                type: 'GET'
+            }).done(function (result) {
+                if (result && result.length) {
+                    var options = '<option value="">State</option>';
+                    for (var i = 0; i < result.length; i++) {
+                        options += '<option value="' + result[i].id + '">' + result[i].name + '</option>';
+                    }
+                    state_selector.html(options);
+
+                    if (selected_state_id != '') {
+                        state_selector.val(selected_state_id);
+                        selected_state_id = '';
+                    }
+                }
+            });
+        }
+    }
+</script>

@@ -1,0 +1,31 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <title><%= page_title(yield(:title)) %></title>
+  <link rel="icon" type="image/x-icon" href="<%= image_path('favicon.png') %>"/>
+  <%= csrf_meta_tags %>
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+  <%= stylesheet_link_tag 'non-admin/application', media: 'all', 'data-turbolinks-track': 'reload' %>
+
+  <%= javascript_include_tag 'non-admin/application', 'data-turbolinks-track': 'reload' %>
+</head>
+
+<% loginPage = %w(passwords sessions registrations).include?(controller_name) %>
+<body data-color="theme-3" style="<%= "background: url('#{image_path('non-admin/special/bg-1.jpg')}');" if loginPage %>" ng-controller="GlobalCtrl">
+<div id="flash_message_script">
+  <%= flash_messages %>
+</div>
+
+<%= render 'layouts/non-admin/loading' %>
+<%= render 'layouts/non-admin/loading_opacity' %>
+
+<%= render 'layouts/non-admin/header_menu' %>
+
+<%= render 'layouts/new_modals' %>
+
+<%= yield %>
+
+<%= render 'layouts/non-admin/footer' %>
+</body>
+</html>

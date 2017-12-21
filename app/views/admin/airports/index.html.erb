@@ -1,0 +1,60 @@
+<nav class="navbar navbar-default margin-top-10">
+  <div class="navbar-header">
+    <button type="button" class="navbar-toggle collapsed" data-toggle="collapse" data-target="#nav-collapsed-content" aria-expanded="false">
+      <span class="icon-bar"></span>
+      <span class="icon-bar"></span>
+      <span class="icon-bar"></span>
+    </button>
+    <a class="navbar-brand" href="#">Search Airport</a>
+  </div>
+
+  <div class="collapse navbar-collapse" id="nav-collapsed-content">
+    <div class="navbar-form navbar-left">
+      <%= render :partial => 'partials/search_form',
+                 :locals => {:plh_search => 'Search airport by name ...',
+                             :key_search => @key_search, :action => airports_path} %>
+    </div>
+
+    <div class="nav navbar-right filters">
+      <%= link_to raw("<i class='fa fa-plus'></i> New Airport"), new_airport_path,
+                  class: 'btn btn-primary btn-sm',
+                  remote: true %>
+    </div>
+  </div>
+</nav>
+
+<div class="box">
+  <div class="box-body">
+    <div class="row">
+      <div class="col-sm-3">
+        <%= render partial: 'partials/page_size_selector',
+                   locals: {
+                       page_size_name: @page_size_name,
+                       page_size_value: @page_size_value,
+                       total_entries: @airports.total_entries,
+                       is_render_script: true}
+        %>
+      </div>
+      <div class="col-sm-9">
+        <%= render 'partials/will_paginate', object: @airports %>
+      </div>
+    </div>
+
+    <table class="table table-hover datatable">
+      <thead>
+      <tr>
+        <th>Name</th>
+        <th>Airport Code</th>
+        <th>City</th>
+        <th class="hidden-xs">State</th>
+        <th class="hidden-xs">Country</th>
+        <th class="hidden-xs">Time Zone</th>
+        <th class="no-sorter"></th>
+      </tr>
+      </thead>
+      <tbody>
+      <%= render @airports %>
+      </tbody>
+    </table>
+  </div>
+</div>

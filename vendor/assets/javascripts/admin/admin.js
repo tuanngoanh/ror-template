@@ -1,0 +1,14 @@
+//= require ./plugins/bootstrap-slider/bootstrap-slider
+//= require ./plugins/morris/morris
+//= require ./plugins/sparkline/jquery.sparkline
+//= require ./plugins/jvectormap/jquery-jvectormap-1.2.2.min
+//= require ./plugins/jvectormap/jquery-jvectormap-world-mill-en
+//= require ./plugins/knob/jquery.knob
+//= require ./plugins/daterangepicker/daterangepicker
+//= require ./plugins/datatables/jquery.dataTables
+//= require ./plugins/datatables/dataTables.bootstrap
+//= require ./plugins/slimScroll/jquery.slimscroll
+//= require ./plugins/fastclick/fastclick
+//= require ./plugins/chartjs/Chart
+//= require ./plugins/select2/select2.full.js
+//= require ./plugins/multidatepicker/jquery-ui.multidatespicker

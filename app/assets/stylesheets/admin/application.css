@@ -1,0 +1,12 @@
+/*
+ *
+ *= require jquery-ui/core
+ *= require jquery-ui/theme
+ *= require jquery-ui/sortable
+ *= require jquery-ui/datepicker
+ *= require admin/admin
+ *= require ./skins/_all-skins
+ *= require ./AdminLTE
+ *= require ./home
+ *= require_self
+ */
