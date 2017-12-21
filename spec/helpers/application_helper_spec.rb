@@ -1,15 +1,33 @@
 require 'rails_helper'
 
-# Specs in this file have access to a helper object that includes
-# the ApplicationHelper. For example:
-#
-# describe ApplicationHelper do
-#   describe "string concat" do
-#     it "concats two strings with spaces" do
-#       expect(helper.concat_strings("this","that")).to eq("this that")
-#     end
-#   end
-# end
-RSpec.describe ApplicationHelper, type: :helper do
-  pending "add some examples to (or delete) #{__FILE__}"
+RSpec.describe ApplicationHelper, :type => :helper do
+
+  describe '#page_title' do
+    context 'when input empty' do
+      it 'expect return "IMT"' do
+        expect(helper.page_title('')).to eq('IMT')
+      end
+    end
+
+    context 'when input "Edit Event"' do
+      it 'expect return "IMT | Edit Event"' do
+        expect(helper.page_title('Edit Event')).to eq('IMT | Edit Event')
+      end
+    end
+  end
+
+  describe '#js_tag' do
+    context 'when input empty' do
+      it 'expect return script tags' do
+        expect(helper.js_tag('')).to eq('<script></script>')
+      end
+    end
+
+    context 'when input not empty' do
+      it 'expect return script tags' do
+        expect(helper.js_tag('test-script')).to eq('<script>test-script</script>')
+      end
+    end
+  end
+
 end

@@ -28,7 +28,7 @@ module ApplicationHelper
 
     html << "<ul class=\"#{object}_errors_list\">"
 
-    saved_key = ""
+    saved_key = ''
     object.errors.each do |key, value|
       if key != saved_key
         html << "<li class=\"#{key} error\"> This #{key} #{value} </li>"
@@ -42,10 +42,6 @@ module ApplicationHelper
     html << '</ul>'
 
     return html.html_safe
-  end
-
-  def s3_image_path(image_name)
-    "https://#{AMAZON_S3_CONFIG[:BUCKET_NAME]}.s3.amazonaws.com/assets/images/#{image_name}"
   end
 
 end

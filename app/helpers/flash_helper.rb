@@ -11,7 +11,7 @@ module FlashHelper
     end
     flash.clear()
     flash.discard()
-    new_flash = "<script type='text/javascript'>"<<flash_messages.join("\n").html_safe<<"</script>"
+    new_flash = "<script type='text/javascript'>"<<flash_messages.join("\n").html_safe<<'</script>'
     new_flash.html_safe if flash_messages.present?
 
   end

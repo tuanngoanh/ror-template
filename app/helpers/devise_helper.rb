@@ -17,7 +17,7 @@ module DeviseHelper
       saved_key = key
     end
 
-    unsolved_errors = pluralize(errors_number, "unsolved error")
+    unsolved_errors = pluralize(errors_number, 'unsolved error')
     html = "<h4 class=\"#{resource_name}_errors_title\"> You have #{unsolved_errors} </h4>" + html
     html << '</ul>'
 
