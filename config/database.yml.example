@@ -7,16 +7,16 @@ default: &default
 
 development:
   <<: *default
-  database: rails5
+  database: sample_project_dev
   username: postgres
   password: admin
   host: 127.0.0.1
 
 test:
   <<: *default
-  database: rails5_test
+  database: sample_project_test
 
 
 production:
   <<: *default
-  database: rails5_prod
+  database: sample_project_prod

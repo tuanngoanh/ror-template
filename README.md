@@ -1,6 +1,8 @@
 # README
 
-Things you may want to cover:
+#---------------------------------------------------------
+# PROJECT INFO:
+#---------------------------------------------------------
 
 * Ruby version: 2.4.2, Rails 5
 
@@ -10,12 +12,30 @@ Things you may want to cover:
 
 * Database creation: postgresql
 
-* Database initialization
 
-* How to run the test suite
+#---------------------------------------------------------
+# SETUP AND RUN:
+#---------------------------------------------------------
 
-* Services (job queues, cache servers, search engines, etc.)
+* bundle install
 
-* Deployment instructions (Mina AutoDeploy)
+* rake db:create
 
-* ...
+* rake db:migrate
+
+* rake db:seed
+
+* rake db:seed:single SEED=temp_users
+
+* login:
+    - admin: admin1@mailinator.com / 123456
+    - user:  user1@mailinator.com / 123456
+
+
+#---------------------------------------------------------
+# RUN UNIT TESTS:
+#---------------------------------------------------------
+
+* run all tests:    rspec test
+
+* model tests:      rspec test/models
