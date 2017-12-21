@@ -3,3 +3,6 @@ development:
 
 production:
   per_page: 30
+
+test:
+  per_page: 30

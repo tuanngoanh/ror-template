@@ -97,6 +97,13 @@ group :development, :test do
   gem 'annotate', '~> 2.7', '>= 2.7.2', require: false
   # Rails logger on rails pannel
   gem 'meta_request'
+  # Rspec Unit test
+  gem 'rspec-rails', '~> 3.7'
+  # Rspec report format as junit to support Jenkins
+  gem 'rspec_junit_formatter'
+  # Code coverage
+  gem 'simplecov'
+  gem 'simplecov-rcov'
 end
 
 group :development do

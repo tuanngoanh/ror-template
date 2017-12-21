@@ -8,10 +8,19 @@ development:
   password: password
 
 production:
-    from: no-reply@imt.sample
-    address: address
-    port: 587
-    enable_starttls_auto: true
-    authentication: plain
-    user_name: username
-    password: password
+  from: no-reply@justour.sample
+  address: address
+  port: 587
+  enable_starttls_auto: true
+  authentication: plain
+  user_name: username
+  password: password
+
+test:
+  from: no-reply@justour.sample
+  address: address
+  port: 587
+  enable_starttls_auto: true
+  authentication: plain
+  user_name: username
+  password: password
