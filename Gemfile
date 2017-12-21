@@ -104,6 +104,10 @@ group :development, :test do
   # Code coverage
   gem 'simplecov'
   gem 'simplecov-rcov'
+  # Mock test data
+  gem 'faker'
+  gem 'factory_bot'
+  gem 'factory_bot_rails'
 end
 
 group :development do
