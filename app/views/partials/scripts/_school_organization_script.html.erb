@@ -17,7 +17,7 @@
 
     function fill_schools(){
         var schools = <%= raw School.to_collection_of_select.to_json %>;
-        var options = '<option value="">Select <%= SCHOOL_GROUP_TEXT %></option>';
+        var options = '<option value="">Select School</option>';
         for (var i = 0; i < schools.length; i++) {
             options += '<option value="' + schools[i][0] + '">' + schools[i][1] + '</option>';
         }

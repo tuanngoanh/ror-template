@@ -44,9 +44,7 @@ WEBSITE_ENV = {
             :CC_NOTIFY              => ENV['EMAIL_CC_NOTIFY']         || 'imt-testing@mailinator.com',
             :INQUIRY                => ENV['EMAIL_INQUIRY']           || 'imt-testing@mailinator.com',
             :ACCOUNTANT_TEAM        => ENV['EMAIL_ACCOUNTANT_TEAM']   || 'imt-testing@mailinator.com',
-            :CTEAM                  => ENV['EMAIL_CTEAM']             || 'imt-testing@mailinator.com',
             :SALE_TEAM              => ENV['EMAIL_SALE_TEAM']         || 'imt-testing@mailinator.com',
-            :SALE_TRIAGE_TEAM       => ENV['EMAIL_SALE_TRIAGE_TEAM']  || 'imt-testing@mailinator.com',
             :INTERNAL_TEAM          => ENV['EMAIL_INTERNAL_TEAM']     || 'imt-testing@mailinator.com',
             :PASSPORT_TEAM          => ENV['EMAIL_PASSPORT_TEAM']     || 'imt-testing@mailinator.com'
         },
@@ -84,9 +82,7 @@ EMAIL_ADDRESS = {
     :CC_NOTIFY              => IS_PRODUCTION ? WEBSITE_ENV[WEBSITE_KEY][:EMAIL][:CC_NOTIFY] : TEST_EMAIL,
     :INQUIRY                => IS_PRODUCTION ? WEBSITE_ENV[WEBSITE_KEY][:EMAIL][:INQUIRY] : TEST_EMAIL,
     :ACCOUNTANT_TEAM        => IS_PRODUCTION ? WEBSITE_ENV[WEBSITE_KEY][:EMAIL][:ACCOUNTANT_TEAM] : TEST_EMAIL,
-    :CTEAM                  => IS_PRODUCTION ? WEBSITE_ENV[WEBSITE_KEY][:EMAIL][:CTEAM] : TEST_EMAIL,
     :SALE_TEAM              => IS_PRODUCTION ? WEBSITE_ENV[WEBSITE_KEY][:EMAIL][:SALE_TEAM] : TEST_EMAIL,
-    :SALE_TRIAGE_TEAM       => IS_PRODUCTION ? WEBSITE_ENV[WEBSITE_KEY][:EMAIL][:SALE_TRIAGE_TEAM] : TEST_EMAIL,
     :INTERNAL_TEAM          => IS_PRODUCTION ? WEBSITE_ENV[WEBSITE_KEY][:EMAIL][:INTERNAL_TEAM] : TEST_EMAIL,
     :PASSPORT_TEAM          => IS_PRODUCTION ? WEBSITE_ENV[WEBSITE_KEY][:EMAIL][:PASSPORT_TEAM] : TEST_EMAIL
 }
@@ -104,8 +100,3 @@ SOCIAL_LINK = {
 FEATURES = {
     :GRADUATION     => ENV['FEATURES_GRADUATION'] || WEBSITE_ENV[WEBSITE_KEY][:FEATURES][:GRADUATION]
 }
-
-# ----------------------------------------------------------------------------------------------
-# School vs Group
-# ----------------------------------------------------------------------------------------------
-SCHOOL_GROUP_TEXT = IS_IMT ? 'School' : 'Group'

@@ -1,5 +1,5 @@
 Rails.application.routes.draw do
-  # For details on the DSL available within this file, see http://guides.rubyonrails.org/routing.html
+
   root 'home#index'
   ##------ STATIC ROUTES------------------------------------------------------------- ##
   #
@@ -8,7 +8,10 @@ Rails.application.routes.draw do
   #
   ##------ END STATIC ROUTES-------------------------------------------------------------##
 
-  ##------FONTEND ROUTES--------------------------------------------------------##
+
+
+
+  ##------FRONTEND ROUTES--------------------------------------------------------##
   #
   devise_for :users, controllers: {
       sessions: 'users/sessions',
@@ -21,7 +24,10 @@ Rails.application.routes.draw do
   get '/get-organizations-from-school/:school_id', to: 'home#get_organizations_from_school', :as => :get_organizations_from_school
 
   #
-  ##------END FONTEND ROUTES--------------------------------------------------------##
+  ##------END FRONTEND ROUTES--------------------------------------------------------##
+
+
+
 
   ##------ ADMIN ROUTES-------------------------------------------------------------##
   #
@@ -32,10 +38,8 @@ Rails.application.routes.draw do
 
     resources :users
 
-    # airlines & airports
     resources :airports
 
-    #schools & organizations
     resources :schools do
       resources :organizations
     end
